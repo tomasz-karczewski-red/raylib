@@ -6,6 +6,11 @@ set(API_VERSION 500)
 include(GNUInstallDirs)
 include(JoinPaths)
 
+find_package(PkgConfig REQUIRED)
+find_package(LibWaylandEgl REQUIRED)
+find_package(LibEgl REQUIRED)
+find_package(LibGlesV2 REQUIRED)
+
 # Sets build type if not set by now
 if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
     if(RAYLIB_IS_MAIN)
@@ -99,11 +104,19 @@ target_include_directories(raylib
                            PUBLIC
                            $<INSTALL_INTERFACE:include>
                            $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+                           ${LIBWAYLANDEGL_INCLUDE_DIRS}
+                           ${LIBEGL_INCLUDE_DIRS}
+                           ${LIBGLESV2_INCLUDE_DIRS}
+                           ${LIBWAYLANDCLIENT_INCLUDE_DIRS}
                            PRIVATE
                            ${CMAKE_CURRENT_SOURCE_DIR}
-                           ${OPENGL_INCLUDE_DIR}
                            ${OPENAL_INCLUDE_DIR}
                            )
+
+target_link_libraries(raylib "wayland-client")
+target_link_libraries(raylib "wayland-egl")
+target_link_libraries(raylib "EGL")
+target_link_libraries(raylib "GLESv2")
 
 # Copy the header files to the build directory for convenience
 file(COPY ${raylib_public_headers} DESTINATION "include")
