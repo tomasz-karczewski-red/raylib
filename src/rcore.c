@@ -495,7 +495,7 @@ const char *TextFormat(const char *text, ...);              // Formatting of tex
 
 // Include platform-specific submodules
 #if defined(PLATFORM_DESKTOP)
-    #include "platforms/rcore_desktop.c"
+    #include "platforms/rcore_stb.c" // TODO?
 #elif defined(PLATFORM_DESKTOP_SDL)
     #include "platforms/rcore_desktop_sdl.c"
 #elif defined(PLATFORM_DESKTOP_RGFW)
