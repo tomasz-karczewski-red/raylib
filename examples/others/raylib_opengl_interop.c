@@ -41,7 +41,7 @@
         #else
             #include "glad.h"       // Required for: OpenGL functionality 
         #endif
-        #define GLSL_VERSION            330
+        #define GLSL_VERSION            DESKTOP_GLSL_VERSION
     #endif
 #else   // PLATFORM_ANDROID, PLATFORM_WEB
     #define GLSL_VERSION            100

@@ -20,7 +20,7 @@
 #include <time.h>       // Required for: localtime(), asctime()
 
 #if defined(PLATFORM_DESKTOP)
-    #define GLSL_VERSION            330
+    #define GLSL_VERSION            DESKTOP_GLSL_VERSION
 #else   // PLATFORM_ANDROID, PLATFORM_WEB
     #define GLSL_VERSION            100
 #endif

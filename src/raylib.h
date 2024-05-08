@@ -108,6 +108,9 @@
     #define RLAPI       // Functions defined as 'extern' by default (implicit specifiers)
 #endif
 
+// glsl version
+#define DESKTOP_GLSL_VERSION 100
+
 //----------------------------------------------------------------------------------
 // Some basic Defines
 //----------------------------------------------------------------------------------
